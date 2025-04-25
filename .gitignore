@@ -1,0 +1,7 @@
+# This line indicates the file directory won't be pushed to git.
+results/
+output/
+output_images/
+output_metrics/
+metrics/
+__pycache__/

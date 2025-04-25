@@ -1,0 +1,9 @@
+index,patient_id,nodule_no,slice_no,original_image,mask_image,malignancy,is_cancer,is_clean,is_nodule,data_split
+0,1,0,0,0001_NI000_slice000,0001_MA000_slice000,5,TRUE,FALSE,FALSE,Train
+1,1,0,1,0001_NI000_slice001,0001_MA000_slice001,5,TRUE,FALSE,FALSE,Train
+2,1,0,2,0001_NI000_slice002,0001_MA000_slice002,5,TRUE,FALSE,FALSE,Train
+3,1,0,3,0001_NI000_slice003,0001_MA000_slice003,5,TRUE,FALSE,FALSE,Train
+4,1,0,4,0001_NI000_slice004,0001_MA000_slice004,5,TRUE,FALSE,FALSE,Train
+5,1,0,5,0001_NI000_slice005,0001_MA000_slice005,5,TRUE,FALSE,FALSE,Test
+6,1,0,6,0001_NI000_slice006,0001_MA000_slice006,5,TRUE,FALSE,FALSE,Test
+7,1,0,7,0001_NI000_slice007,0001_MA000_slice007,5,TRUE,FALSE,FALSE,Validation
