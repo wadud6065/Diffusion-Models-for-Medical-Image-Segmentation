@@ -1,4 +1,4 @@
-# Diffusion Models for Medical Image Segmentation
+# Diffusion Models for removing noises from medical image
 
 This repository is inspired by the PyTorch implementation of OpenAI's [improved-diffusion](https://github.com/openai/improved-diffusion) and the research paper [Diffusion Models for Implicit Image Segmentation Ensembles](https://arxiv.org/abs/2112.03145), [GitHub Repo](https://github.com/JuliaWolleb/Diffusion-based-Segmentation) by Julia Wolleb, Robin Sandkühler, Florentin Bieder, Philippe Valmaggia, and Philippe C. Cattin.
 
