@@ -28,7 +28,7 @@ from guided_diffusion.script_util import (
     add_dict_to_argparser,
     args_to_dict,
 )
-from LIDCLoader import Load_data
+from DataLoader import Load_data
 from performance_metrics import dice_score, calculate_hd95, iou_score, dice_coef2
 seed=10
 th.manual_seed(seed)
@@ -94,7 +94,7 @@ def main():
     if not os.path.exists(output_metrics_dir):
         os.makedirs(output_metrics_dir)
 
-    ds = Load_data(mode='Test', image_width=1024, image_height=768)
+    ds = Load_data(mode='Test', image_width=512, image_height=384)
     datal= th.utils.data.DataLoader(
         ds,
         batch_size=1,
@@ -120,13 +120,13 @@ def main():
     cnt = 1
     while len(all_images) * args.batch_size < args.num_samples:
         # should return an image from the dataloader "data"
-        noisy_image, clean_image, noisy_image_path, mask_path = next(data)
+        noisy_image, clean_image, noisy_image_path, clean_image_path = next(data)
         c = th.randn_like(noisy_image[:, :1, ...])
         img = th.cat((noisy_image, c), dim=1)  # add a noise channel$
         print(noisy_image_path)
         # slice_ID = path[0].split("/", -1)[3]
         slice_ID = os.path.basename(noisy_image_path[0]).split(".")[0]
-        title = os.path.basename(mask_path[0]).split(".")[0]
+        title = os.path.basename(clean_image_path[0]).split(".")[0]
 
         logger.log("sampling...")
 
@@ -143,7 +143,7 @@ def main():
             )
             sample, x_noisy, org = sample_fn(
                 model,
-                (args.batch_size, 3, args.image_size, args.image_size), img,
+                (args.batch_size, 5, 384, 512), img,
                 clip_denoised=args.clip_denoised,
                 model_kwargs=model_kwargs,
             )

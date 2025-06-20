@@ -37,7 +37,7 @@ def main():
 
     logger.log("creating data loader...")
 
-    ds = Load_data(mode='Train', image_width=1024, image_height=768)
+    ds = Load_data(mode='Train', image_width=512, image_height=384)
     datal= th.utils.data.DataLoader(
         ds,
         batch_size=args.batch_size,
